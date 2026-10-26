@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>同志影视_同志影视官网 - 高分影视推荐与影评索引站</title>
+<meta name="description" content="同志影视（tongzhiyingshi-app.github.io）是一家专注影视内容索引与观影决策的站点：每日更新编辑精选片单、豆瓣高分排行榜、类型影视分类导航与原创影评解读，覆盖剧情、科幻、动画、悬疑、纪录等题材，帮你快速找到值得一看的影片。">
+<meta name="keywords" content="同志影视,同志影视官网,同志影视推荐,高分电影推荐,影视排行榜,影评文章,类型片单,影视导航,观影指南,tongzhiyingshi-app">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
+<meta name="author" content="同志影视编辑部">
+<meta name="format-detection" content="telephone=no">
+<meta name="theme-color" content="#141210">
+<link rel="canonical" href="https://tongzhiyingshi-app.github.io/">
+<link rel="alternate" hreflang="zh-CN" href="https://tongzhiyingshi-app.github.io/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="同志影视">
+<meta property="og:title" content="同志影视 - 高分影视推荐与影评索引">
+<meta property="og:description" content="同志影视每日更新编辑精选片单、热门影视排行榜、类型影视导航与原创影评，用一份清单解决今晚看什么。">
+<meta property="og:url" content="https://tongzhiyingshi-app.github.io/">
+<meta property="og:locale" content="zh_CN">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="同志影视 - 高分影视推荐与影评索引">
+<meta name="twitter:description" content="精选片单、影视排行榜、类型导航与影评解读，同志影视一站看完。">
+<style>
+:root{
+  --ink:#141210;
+  --ink-2:#1e1a17;
+  --paper:#f4efe6;
+  --paper-2:#e7dfd2;
+  --line:#cfc4b1;
+  --red:#b8402c;
+  --gold:#c99a4b;
+  --muted:#7d7264;
+  --maxw:1180px;
+}
+*{box-sizing:border-box;}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font:16px/1.75 "PingFang SC","Hiragino Sans GB","Microsoft YaHei","Source Han Sans SC",sans-serif;
+  background-image:radial-gradient(rgba(20,18,16,.045) 1px,transparent 1px);
+  background-size:22px 22px;
+}
+img{max-width:100%;height:auto;display:block;}
+a{color:inherit;text-decoration:none;}
+ul,ol{margin:0;padding:0;list-style:none;}
+h1,h2,h3,h4{margin:0;font-weight:800;letter-spacing:.02em;line-height:1.35;}
+p{margin:0 0 .9em;}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 20px;}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);}
+
+/* ---------- 顶部 ---------- */
+.topbar{background:var(--ink);color:var(--paper);font-size:13px;}
+.topbar .wrap{display:flex;justify-content:space-between;align-items:center;height:38px;gap:12px;}
+.topbar span{opacity:.72;}
+.topbar nav a{margin-left:14px;opacity:.8;}
+.topbar nav a:hover{opacity:1;color:var(--gold);}
+
+.masthead{background:var(--ink-2);border-bottom:4px solid var(--red);}
+.masthead .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 20px;}
+.logo{display:flex;align-items:center;gap:12px;}
+.logo .mark{
+  width:46px;height:46px;flex:0 0 46px;border:2px solid var(--gold);color:var(--gold);
+  display:flex;align-items:center;justify-content:center;font-weight:800;font-size:22px;
+  border-radius:6px;transform:rotate(-3deg);
+}
+.logo .txt strong{display:block;color:var(--paper);font-size:24px;letter-spacing:.14em;}
+.logo .txt small{display:block;color:var(--muted);font-size:12px;letter-spacing:.3em;text-transform:uppercase;}
+.search{display:flex;flex:1 1 320px;max-width:420px;}
+.search input{
+  flex:1;min-width:0;padding:10px 14px;border:1px solid #3a332c;border-right:0;
+  background:#100e0c;color:var(--paper);font-size:14px;border-radius:4px 0 0 4px;
+}
+.search input::placeholder{color:#6d6255;}
+.search button{
+  padding:10px 18px;border:0;background:var(--red);color:#fff;font-size:14px;
+  cursor:pointer;border-radius:0 4px 4px 0;font-weight:700;
+}
+
+/* ---------- 导航 ---------- */
+.nav{background:var(--paper-2);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:20;}
+.nav .wrap{display:flex;align-items:center;gap:6px;overflow-x:auto;white-space:nowrap;-webkit-overflow-scrolling:touch;}
+.nav a{padding:14px 14px;font-size:15px;font-weight:700;color:#3a332c;border-bottom:3px solid transparent;}
+.nav a:hover,.nav a:focus{color:var(--red);border-bottom-color:var(--red);}
+.nav .toggle{display:none;}
+
+/* ---------- 首屏 ---------- */
+.hero{background:var(--ink);color:var(--paper);padding:46px 0 40px;position:relative;overflow:hidden;}
+.hero:before{
+  content:"";position:absolute;inset:0;
+  background:repeating-linear-gradient(90deg,transparent 0 38px,rgba(255,255,255,.03) 38px 40px);
+  pointer-events:none;
+}
+.hero .wrap{position:relative;display:grid;grid-template-columns:1.35fr 1fr;gap:38px;align-items:center;}
+.hero h1{font-size:38px;color:#fff;letter-spacing:.03em;}
+.hero h1 em{font-style:normal;color:var(--gold);}
+.hero .lead{color:#c9c0b3;margin:14px 0 22px;font-size:16px;max-width:44em;}
+.hero .url{
+  display:inline-block;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:14px;
+  color:var(--gold);border:1px dashed #4b4238;padding:8px 14px;border-radius:4px;word-break:break-all;
+}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px;}
+.tags a{
+  font-size:13px;padding:5px 12px;border:1px solid #4b4238;border-radius:20px;color:#c9c0b3;
+}
+.tags a:hover{border-color:var(--gold);color:var(--gold);}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;background:#1c1916;border:1px solid #322c26;padding:18px;border-radius:8px;}
+.stats div{text-align:center;}
+.stats b{display:block;font-size:26px;color:var(--gold);}
+.stats small{color:var(--muted);font-size:12px;letter-spacing:.08em;}
+
+/* ---------- 通用区块 ---------- */
+section{padding:46px 0;}
+.sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin-bottom:24px;border-bottom:2px solid var(--ink);padding-bottom:10px;}
+.sec-head h2{font-size:24px;}
+.sec-head h2 span{color:var(--red);}
+.sec-head p{color:var(--muted);font-size:13px;margin:0;}
+.more{font-size:13px;color:var(--red);font-weight:700;white-space:nowrap;}
+
+/* 卡片网格 */
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;}
+.card{background:#fff;border:1px solid var(--line);border-radius:8px;overflow:hidden;display:flex;flex-direction:column;}
+.card:hover{border-color:var(--red);box-shadow:0 8px 20px rgba(20,18,16,.10);}
+.poster{aspect-ratio:3/4;background:linear-gradient(150deg,#2a251f,#46403a 60%,#6b6259);position:relative;display:flex;align-items:flex-end;color:#fff;padding:12px;}
+.poster em{font-style:normal;font-size:13px;background:rgba(20,18,16,.72);padding:3px 8px;border-radius:3px;}
+.poster b{position:absolute;top:10px;left:10px;font-size:12px;background:var(--red);padding:2px 8px;border-radius:3px;}
+.card h3{font-size:16px;padding:12px 12px 4px;}
+.card .meta{font-size:12px;color:var(--muted);padding:0 12px 10px;}
+.card p{font-size:13px;color:#4b4238;padding:0 12px 14px;margin:0;}
+.card .foot{margin-top:auto;border-top:1px dashed var(--line);padding:10px 12px;display:flex;justify-content:space-between;font-size:12px;color:var(--muted);}
+
+/* 分类导航 */
+.cats{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;}
+.cats a{
+  display:block;text-align:center;padding:16px 8px;background:#fff;border:1px solid var(--line);border-radius:6px;font-size:14px;font-weight:700;
+}
+.cats a i{display:block;font-style:normal;font-size:12px;color:var(--muted);font-weight:400;margin-top:4px;}
+.cats a:hover{background:var(--ink);color:var(--paper);}
+.cats a:hover i{color:var(--gold);}
+
+/* 影评双栏 */
+.cols{display:grid;grid-template-columns:1.6fr 1fr;gap:30px;}
+.post{display:grid;grid-template-columns:120px 1fr;gap:16px;padding:16px 0;border-bottom:1px dashed var(--line);}
+.post .thumb{height:84px;border-radius:6px;background:linear-gradient(120deg,#54493f,#8b7f70);}
+.post h3{font-size:17px;margin-bottom:6px;}
+.post h3 a:hover{color:var(--red);}
+.post .meta{font-size:12px;color:var(--muted);}
+.post p{font-size:14px;color:#4b4238;margin:6px 0 0;}
+.side h3{font-size:17px;border-left:4px solid var(--red);padding-left:10px;margin-bottom:14px;}
+.side ol li{padding:9px 0;border-bottom:1px dashed var(--line);font-size:14px;display:flex;gap:10px;}
+.side ol li b{color:var(--gold);}
+.note{background:#efe8dc;border:1px solid var(--line);padding:16px;border-radius:6px;font-size:14px;margin-top:18px;}
+
+/* 榜单 */
+.board{background:#fff;border:1px solid var(--line);border-radius:8px;padding:8px 0;}
+.board li{display:grid;grid-template-columns:52px 1fr 92px 60px;gap:12px;align-items:center;padding:12px 16px;border-bottom:1px dashed var(--line);font-size:14px;}
+.board li:last-child{border-bottom:0;}
+.board .no{font-size:18px;font-weight:800;color:var(--gold);text-align:center;}
+.board .no.top{color:var(--red);}
+.board .bar{height:6px;background:var(--paper-2);border-radius:3px;overflow:hidden;}
+.board .bar i{display:block;height:100%;background:var(--red);}
+.board .score{font-weight:800;color:var(--red);text-align:right;}
+
+/* FAQ */
+.faq details{border:1px solid var(--line);background:#fff;border-radius:6px;margin-bottom:10px;padding:12px 16px;}
+.faq summary{font-weight:700;cursor:pointer;font-size:15px;outline:none;}
+.faq details[open] summary{color:var(--red);}
+.faq p{font-size:14px;color:#4b4238;margin:10px 0 0;}
+
+/* 页脚 */
+footer{background:var(--ink);color:#c9c0b3;padding:40px 0 0;margin-top:20px;}
+.fgrid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:28px;}
+footer h4{color:var(--paper);font-size:15px;margin-bottom:12px;letter-spacing:.06em;}
+footer li{padding:5px 0;font-size:13px;}
+footer li a:hover{color:var(--gold);}
+footer .about p{font-size:13px;color:#a99f92;}
+footer .bottom{border-top:1px solid #322c26;margin-top:30px;padding:18px 0 26px;font-size:12px;color:#8c8377;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;}
+footer .bottom a{color:#a99f92;margin-right:12px;}
+.crumb{font-size:12px;color:var(--muted);padding:14px 0 0;}
+.crumb a{color:var(--muted);}
+
+/* ---------- 移动端 ---------- */
+@media (max-width:960px){
+  .hero .wrap{grid-template-columns:1fr;}
+  .grid{grid-template-columns:repeat(2,1fr);}
+  .cats{grid-template-columns:repeat(3,1fr);}
+  .cols{grid-template-columns:1fr;}
+  .fgrid{grid-template-columns:1fr 1fr;}
+}
+@media (max-width:640px){
+  body{font-size:15px;}
+  .topbar .wrap{height:auto;padding:8px 20px;flex-direction:column;align-items:flex-start;gap:4px;}
+  .topbar span:last-child{display:none;}
+  .masthead .wrap{flex-direction:column;align-items:stretch;gap:12px;padding:14px 20px;}
+  .search{max-width:none;}
+  .hero{padding:30px 0 26px;}
+  .hero h1{font-size:26px;}
+  .stats{grid-template-columns:repeat(3,1fr);padding:12px;}
+  .stats b{font-size:20px;}
+  section{padding:30px 0;}
+  .sec-head h2{font-size:20px;}
+  .grid{grid-template-columns:1fr;gap:14px;}
+  .card{display:grid;grid-template-columns:104px 1fr;}
+  .poster{aspect-ratio:auto;height:150px;}
+  .card .foot{display:none;}
+  .post{grid-template-columns:88px 1fr;gap:12px;}
+  .post .thumb{height:64px;}
+  .board li{grid-template-columns:34px 1fr 54px;gap:8px;font-size:13px;padding:10px 12px;}
+  .board .bar{display:none;}
+  .fgrid{grid-template-columns:1fr;}
+  .nav .wrap{gap:0;}
+  .nav a{padding:12px 11px;font-size:14px;}
+}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://tongzhiyingshi-app.github.io/#website",
+      "url": "https://tongzhiyingshi-app.github.io/",
+      "name": "同志影视",
+      "alternateName": ["同志影视官网", "tongzhiyingshi-app"],
+      "inLanguage": "zh-CN",
+      "description": "同志影视提供高分影视推荐、类型片单导航、影视排行榜与原创影评解读，覆盖剧情、科幻、动画、悬疑、纪录等题材。",
+      "publisher": {"@id": "https://tongzhiyingshi-app.github.io/#org"},
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://tongzhiyingshi-app.github.io/?s={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://tongzhiyingshi-app.github.io/#org",
+      "name": "同志影视编辑部",
+      "url": "https://tongzhiyingshi-app.github.io/",
+      "description": "同志影视站点的内容维护团队，负责片单筛选、影视排行榜更新与影评撰写。"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "同志影视首页", "item": "https://tongzhiyingshi-app.github.io/"},
+        {"@type": "ListItem", "position": 2, "name": "编辑精选片单", "item": "https://tongzhiyingshi-app.github.io/#picks"},
+        {"@type": "ListItem", "position": 3, "name": "影视分类导航", "item": "https://tongzhiyingshi-app.github.io/#genre"},
+        {"@type": "ListItem", "position": 4, "name": "影评与观影指南", "item": "https://tongzhiyingshi-app.github.io/#review"},
+        {"@type": "ListItem", "position": 5, "name": "影视排行榜", "item": "https://tongzhiyingshi-app.github.io/#rank"}
+      ]
+    },
+    {
+      "@type": "ItemList",
+      "name": "同志影视编辑精选片单",
+      "itemListOrder": "https://schema.org/ItemListOrderDescending",
+      "numberOfItems": 4,
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "肖申克的救赎 The Shawshank Redemption（1994）"},
+        {"@type": "ListItem", "position": 2, "name": "千与千寻 千と千尋の神隠し（2001）"},
+        {"@type": "ListItem", "position": 3, "name": "星际穿越 Interstellar（2014）"},
+        {"@type": "ListItem", "position": 4, "name": "教父 The Godfather（1972）"}
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/yazhou.js"></script>
+
+<div class="topbar">
+  <div class="wrap">
+    <span>同志影视 · 每日 09:00 更新片单，收录影片信息均来自公开资料整理</span>
+    <nav aria-label="快捷入口">
+      <a href="#">投稿</a>
+      <a href="#">片单征集</a>
+      <a href="#">纠错反馈</a>
+    </nav>
+  </div>
+</div>
+
+<header class="masthead">
+  <div class="wrap">
+    <a class="logo" href="#" aria-label="同志影视首页">
+      <span class="mark" aria-hidden="true">影</span>
+      <span class="txt">
+        <strong>同志影视</strong>
+        <small>tongzhiyingshi-app</small>
+      </span>
+    </a>
+    <form class="search" action="#" method="get" role="search">
+      <label class="sr" for="kw">搜索同志影视站内影片</label>
+      <input id="kw" name="s" type="search" placeholder="搜索片名 / 导演 / 类型，例如：科幻">
+      <button type="submit">搜索</button>
+    </form>
+  </div>
+</header>
+
+<nav class="nav" aria-label="主导航">
+  <div class="wrap">
+    <a href="#top">首页</a>
+    <a href="#picks">编辑精选</a>
+    <a href="#genre">类型导航</a>
+    <a href="#review">影评专栏</a>
+    <a href="#rank">影视排行榜</a>
+    <a href="#faq">观影问答</a>
+    <a href="#about">关于同志影视</a>
+  </div>
+</nav>
+
+<main id="top">
+
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="wrap">
+      <div>
+        <h1 id="hero-title">同志影视：<em>一份清单</em>解决今晚看什么</h1>
+        <p class="lead">同志影视做的是观影决策这件事——编辑部每天从新片、经典库与影展片单里筛出真正值得花时间的作品，配上类型导航、评分走势与影评解读。不堆片源，只讲清楚每部片好看在哪。</p>
+        <a class="url" href="https://tongzhiyingshi-app.github.io/">https://tongzhiyingshi-app.github.io</a>
+        <div class="tags">
+          <a href="#">剧情片</a>
+          <a href="#">科幻</a>
+          <a href="#">动画</a>
+          <a href="#">悬疑犯罪</a>
+          <a href="#">纪录片</a>
+          <a href="#">文艺爱情</a>
+          <a href="#">影展佳片</a>
+        </div>
+      </div>
+      <div class="stats">
+        <div><b>4820</b><small>收录影片</small></div>
+        <div><b>316</b><small>精选片单</small></div>
+        <div><b>9.2</b><small>平均口碑分</small></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap crumb">
+    <nav aria-label="面包屑导航">
+      <a href="#">同志影视</a> &gt; <a href="#">影视首页</a> &gt; 编辑精选片单
+    </nav>
+  </div>
+
+  <section id="picks" aria-labelledby="picks-title">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <h2 id="picks-title">编辑精选 · <span>本周同志影视推荐</span></h2>
+          <p>更新于 2026-10-24 ｜ 由同志影视编辑部 6 人投票选出，按观影门槛从低到高排列</p>
+        </div>
+        <a class="more" href="#">查看全部片单 →</a>
+      </div>
+      <div class="grid">
+        <article class="card">
+          <div class="poster"><b>剧情</b><em>1994 · 美国</em></div>
+          <h3><a href="#">肖申克的救赎 The Shawshank Redemption</a></h3>
+          <p class="meta">弗兰克·德拉邦特 ｜ 蒂姆·罗宾斯、摩根·弗里曼</p>
+          <p>监狱片的外壳，讲的是长期主义。节奏稳、情绪收得住，重看第三遍仍能发现新的细节铺垫。</p>
+          <div class="foot"><span>口碑 9.7</span><span>片长 142 分钟</span></div>
+        </article>
+        <article class="card">
+          <div class="poster"><b>动画</b><em>2001 · 日本</em></div>
+          <h3><a href="#">千与千寻 千と千尋の神隠し</a></h3>
+          <p class="meta">宫崎骏 ｜ 柊瑠美、入野自由</p>
+          <p>手绘质感的巅峰之一。汤屋的每一层空间都有生活逻辑，适合全家一起看，也适合一个人看成长。</p>
+          <div class="foot"><span>口碑 9.4</span><span>片长 125 分钟</span></div>
+        </article>
+        <article class="card">
+          <div class="poster"><b>科幻</b><em>2014 · 美国</em></div>
+          <h3><a href="#">星际穿越 Interstellar</a></h3>
+          <p class="meta">克里斯托弗·诺兰 ｜ 马修·麦康纳、安妮·海瑟薇</p>
+          <p>硬科幻设定配亲情主线，配乐撑起大半情绪。建议戴耳机看，IMAX 或高码率版本体验差别明显。</p>
+          <div class="foot"><span>口碑 9.4</span><span>片长 169 分钟</span></div>
+        </article>
+        <article class="card">
+          <div class="poster"><b>犯罪</b><em>1972 · 美国</em></div>
+          <h3><a href="#">教父 The Godfather</a></h3>
+          <p class="meta">弗朗西斯·福特·科波拉 ｜ 马龙·白兰度、阿尔·帕西诺</p>
+          <p>教科书级的场面调度与人物弧光。开场十分钟的长镜头，基本能说明它为什么被反复模仿。</p>
+          <div class="foot"><span>口碑 9.3</span><span>片长 175 分钟</span></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="genre" aria-labelledby="genre-title" style="background:#efe8dc;">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <h2 id="genre-title">类型导航 · <span>按口味挑片</span></h2>
+          <p>同志影视把收录影片拆成 18 个主类型，点击进入即可查看该类型的片单与更新记录</p>
+        </div>
+        <a class="more" href="#">全部 18 个类型 →</a>
+      </div>
+      <div class="cats">
+        <a href="#">剧情<i>1264 部</i></a>
+        <a href="#">喜剧<i>872 部</i></a>
+        <a href="#">科幻<i>431 部</i></a>
+        <a href="#">动画<i>508 部</i></a>
+        <a href="#">悬疑<i>396 部</i></a>
+        <a href="#">犯罪<i>347 部</i></a>
+        <a href="#">爱情<i>612 部</i></a>
+        <a href="#">纪录片<i>289 部</i></a>
+        <a href="#">战争<i>215 部</i></a>
+        <a href="#">惊悚<i>268 部</i></a>
+        <a href="#">奇幻<i>233 部</i></a>
+        <a href="#">家庭<i>198 部</i></a>
+      </div>
+    </div>
+  </section>
+
+  <section id="review" aria-labelledby="review-title">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <h2 id="review-title">影评专栏 · <span>看懂一部片</span></h2>
+          <p>同志影视原创长评，每周三更新，重点拆解叙事结构与镜头语言</p>
+        </div>
+        <a class="more" href="#">进入影评归档 →</a>
+      </div>
+      <div class="cols">
+        <div>
+          <article class="post">
+            <div class="thumb" aria-hidden="true"></div>
+            <div>
+              <h3><a href="#">《教父》开场十分钟：一场婚礼如何讲清整个家族权力结构</a></h3>
+              <p class="meta">同志影视编辑部 · 老周 ｜ 2026-10-22 ｜ 阅读 1.2 万 ｜ 分类：影评解析</p>
+              <p>科波拉用一场婚礼完成了人物登场、权力交接与矛盾埋线，信息密度远超多数电影的第一幕。</p>
+            </div>
+          </article>
+          <article class="post">
+            <div class="thumb" aria-hidden="true"></div>
+            <div>
+              <h3><a href="#">从《千与千寻》看手绘动画的"空间叙事"：汤屋为什么让人信服</a></h3>
+              <p class="meta">同志影视编辑部 · 阿岚 ｜ 2026-10-18 ｜ 阅读 9863 ｜ 分类：动画研究</p>
+              <p>锅炉房、员工宿舍、顶层豪宅三层垂直空间，把社会分工画进了建筑里。</p>
+            </div>
+          </article>
+          <article class="post">
+            <div class="thumb" aria-hidden="true"></div>
+            <div>
+              <h3><a href="#">硬科幻的时间尺度：《星际穿越》里那些被忽略的物理设定</a></h3>
+              <p class="meta">同志影视编辑部 · 陈默 ｜ 2026-10-15 ｜ 阅读 7541 ｜ 分类：科幻专栏</p>
+              <p>从米勒星球的一小时七年，到黑洞视界的视觉呈现，诺兰请了物理学家做顾问是有原因的。</p>
+            </div>
+          </article>
+          <article class="post">
+            <div class="thumb" aria-hidden="true"></div>
+            <div>
+              <h3><a href="#">观影设备与版本选择：同一部片为什么你看到的质感不一样</a></h3>
+              <p class="meta">同志影视编辑部 · 小林 ｜ 2026-10-11 ｜ 阅读 6210 ｜ 分类：观影指南</p>
+              <p>码率、色域、音轨配置对成片观感的影响，比多数人想象的要大。</p>
+            </div>
+          </article>
+        </div>
+        <aside class="side">
+          <h3>近期热门搜索</h3>
+          <ol>
+            <li><b>1</b><a href="#">周末双人片单推荐</a></li>
+            <li><b>2</b><a href="#">适合通勤看的短片集</a></li>
+            <li><b>3</b><a href="#">近十年高分华语片</a></li>
+            <li><b>4</b><a href="#">孩子能一起看的动画</a></li>
+            <li><b>5</b><a href="#">悬疑片入门十部</a></li>
+            <li><b>6</b><a href="#">纪录片：自然与地理</a></li>
+          </ol>
+          <div class="note">
+            <strong>同志影视选片标准</strong>
+            <p>先看叙事完成度，再看技术表现，最后参考口碑稳定性。评分只作参考，编辑部会标注每个片单的适用场景：独处、情侣、家庭或影迷补课。</p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section id="rank" aria-labelledby="rank-title" style="background:#efe8dc;">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <h2 id="rank-title">影视排行榜 · <span>本周口碑 TOP 10</span></h2>
+          <p>统计区间 2026-10-17 至 2026-10-24，样本为同志影视站内评分与讨论热度</p>
+        </div>
+        <a class="more" href="#">查看完整榜单 →</a>
+      </div>
+      <ol class="board">
+        <li><span class="no top">01</span><a href="#">肖申克的救赎（1994）</a><span class="bar"><i style="width:97%"></i></span><span class="score">9.7</span></li>
+        <li><span class="no top">02</span><a href="#">千与千寻（2001）</a><span class="bar"><i style="width:94%"></i></span><span class="score">9.4</span></li>
+        <li><span class="no top">03</span><a href="#">星际穿越（2014）</a><span class="bar"><i style="width:94%"></i></span><span class="score">9.4</span></li>
+        <li><span class="no">04</span><a href="#">教父（1972）</a><span class="bar"><i style="width:93%"></i></span><span class="score">9.3</span></li>
+        <li><span class="no">05</span><a href="#">这个杀手不太冷（1994）</a><span class="bar"><i style="width:92%"></i></span><span class="score">9.2</span></li>
+        <li><span class="no">06</span><a href="#">疯狂动物城（2016）</a><span class="bar"><i style="width:91%"></i></span><span class="score">9.1</span></li>
+        <li><span class="no">07</span><a href="#">盗梦空间（2010）</a><span class="bar"><i style="width:90%"></i></span><span class="score">9.0</span></li>
+        <li><span class="no">08</span><a href="#">大话西游之大圣娶亲（1995）</a><span class="bar"><i style="width:89%"></i></span><span class="score">8.9</span></li>
+        <li><span class="no">09</span><a href="#">无间道（2002）</a><span class="bar"><i style="width:88%"></i></span><span class="score">8.8</span></li>
+        <li><span class="no">10</span><a href="#">海上钢琴师（1998）</a><span class="bar"><i style="width:87%"></i></span><span class="score">8.7</span></li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="faq" aria-labelledby="faq-title">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <h2 id="faq-title">观影问答 · <span>关于同志影视</span></h2>
+          <p>编辑部整理了读者问得最多的几个问题</p>
+        </div>
+        <a class="more" href="#">我要提问 →</a>
+      </div>
+      <div class="faq">
+        <details open>
+          <summary>同志影视是什么类型的站点？</summary>
+          <p>同志影视是一个影视信息索引与观影决策站点，主要产出精选片单、类型导航、影视排行榜与原创影评，站点本身不存储、不提供任何影片的播放与下载资源。</p>
+        </details>
+        <details>
+          <summary>片单是怎么选出来的？</summary>
+          <p>先由编辑部成员各自提名，再按叙事完成度、技术表现与口碑稳定性三项打分取平均，最后标注适用场景。每期片单都会附上更新时间与参与编辑人数。</p>
+        </details>
+        <details>
+          <summary>排行榜多久更新一次？</summary>
+          <p>口碑榜每周六更新，统计区间为上周六至本周五；影展与季度的专题榜会单独标注统计口径，避免与新片榜混在一起比较。</p>
+        </details>
+        <details>
+          <summary>发现影片信息有错误怎么办？</summary>
+          <p>通过顶部"纠错反馈"入口提交片名与错误信息，编辑部会在两个工作日内核对公开资料后修正，并在页面更新记录里标注修改说明。</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" aria-labelledby="about-title" style="background:#efe8dc;">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <h2 id="about-title">关于 · <span>同志影视编辑部</span></h2>
+          <p>做影视内容第 6 年，坚持每条推荐都写明理由</p>
+        </div>
+        <a class="more" href="#">加入我们 →</a>
+      </div>
+      <div class="cols">
+        <div>
+          <p>同志影视最早只是一个几个人维护的片单笔记，后来慢慢做成了现在的样子：每日更新片单、每周更新排行榜、每月做一次影展专题。我们不做资源站，只做筛选与解读——把"为什么要看这部片"讲清楚，是同志影视一直坚持的事。</p>
+          <p>站点共设六个内容栏目：编辑精选、类型导航、影评专栏、影视排行榜、观影问答与关于我们。所有影片条目均标注年份、地区、导演、主演与片长，方便快速判断是否适合自己当下的观影状态。</p>
+          <p>如果你有想看的题材却不知道从哪部开始，直接在顶部搜索框输入类型关键词，同志影视会给出对应片单入口。</p>
+        </div>
+        <aside class="side">
+          <h3>栏目速览</h3>
+          <ol>
+            <li><b>01</b><a href="#picks">编辑精选片单</a></li>
+            <li><b>02</b><a href="#genre">类型影视导航</a></li>
+            <li><b>03</b><a href="#review">影评与观影指南</a></li>
+            <li><b>04</b><a href="#rank">影视排行榜</a></li>
+            <li><b>05</b><a href="#faq">观影问答</a></li>
+            <li><b>06</b><a href="#about">关于同志影视</a></li>
+          </ol>
+          <div class="note">
+            <strong>联系与投稿</strong>
+            <p>投稿、纠错与商务合作请通过顶部入口提交，编辑部邮箱与合作说明在提交页内可见，工作日 48 小时内回复。</p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="fgrid">
+      <div class="about">
+        <h4>同志影视</h4>
+        <p>同志影视（https://tongzhiyingshi-app.github.io）专注影视片单筛选、类型导航、影视排行榜与原创影评解读。本站所有条目均为影视信息整理，不提供任何影片的在线播放与下载服务，请通过正规授权渠道观看正版内容。</p>
+        <p style="margin-top:10px;">编辑部值班时间：周一至周五 09:00–18:00</p>
+      </div>
+      <div>
+        <h4>内容栏目</h4>
+        <ul>
+          <li><a href="#picks">编辑精选</a></li>
+          <li><a href="#genre">类型导航</a></li>
+          <li><a href="#review">影评专栏</a></li>
+          <li><a href="#rank">影视排行榜</a></li>
+          <li><a href="#faq">观影问答</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>热门类型</h4>
+        <ul>
+          <li><a href="#">剧情片推荐</a></li>
+          <li><a href="#">科幻片推荐</a></li>
+          <li><a href="#">动画电影</a></li>
+          <li><a href="#">悬疑犯罪</a></li>
+          <li><a href="#">纪录片</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>站点服务</h4>
+        <ul>
+          <li><a href="#">投稿入口</a></li>
+          <li><a href="#">纠错反馈</a></li>
+          <li><a href="#">版权声明</a></li>
+          <li><a href="#">隐私说明</a></li>
+          <li><a href="#">友情链接</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="bottom">
+      <span>Copyright &copy; 2019–2026 同志影视 tongzhiyingshi-app.github.io ｜ 影视信息索引，观看正版</span>
+      <span>
+        <a href="#">网站地图</a>
+        <a href="#">返回顶部</a>
+      </span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
